@@ -1,30 +1,37 @@
 'use strict';
 {
-    // Date
-    const d = new Date();
-    console.log(d.getFullYear());
-    console.log(d.getMonth()); // 0 -- 11
-    console.log(d.getDate()); 
-    console.log(d.getDay());  // 0 - 6 曜日のこと
-    console.log(d.getHours());
-    console.log(d.getMinutes());
-    console.log(d.getSeconds());
-    console.log(d.getMilliseconds());
+    // window.alert('hello'); window省略可
+    // alert('hello');
 
-    console.log(d.getTime()); // UTC 1970/01/01 00:00:00 からの経過ミリ秒
+    // const answer = confirm('Are you sure?');
+    // console.log(answer); // ok -> true no -> false
 
-    const c = new Date(2018, 11); // 2018/12/01 00:00:00
-    c.setHours(10, 20, 30); // 10時20分30秒をセット
-    c.setDate(32); // 2019/01/01 10:20:30 繰越し
-    c.setDate(c.getDate() + 3); // 今の日にちから三日後にセット
-    console.log(c);
+    // setInterval(関数、ミリ秒)
+    /*
+    let i = 0;
+    const showTime = () => {
+        console.log(new Date());
+        i++;
+        if (i > 2) {
+            clearInterval(timerId);
+        }
+    };
 
+    let timerId = setInterval(showTime, 1000);
+    */
 
-    const d1 = new Date(2018, 11, 1);
-    const d2 = new Date(2018, 11, 10);
-    // 計算すると、UTCからの経過ミリ秒に変換される
-    console.log(d2 - d1); // 777600000
+    let i = 0;
+
+    const showTime = () => {
+        console.log(new Date());
+        let timerId = setTimeout(showTime, 1000); // 一度だけ呼び出される
+        i++;
+        if (i > 2) {
+            clearTimeout(timerId);
+        }
+    };
+
+    showTime();
+
     
-    // 1000でわって、秒数、60でわって分数、60でわって時間数、24でわって日数
-    console.log((d2 - d1) / (24 * 60 * 60 * 1000));
 }
