@@ -1,36 +1,20 @@
 'use strict';
 {
-    const a = [10, 20];
-    // ピリオド3つ(スプレッド演算子)で配列の値の展開
-    // ちなみにこの場合は配列がコピーされるのでaの変更はbでは反映されない
-    const b = [1, 2, ...a]; 
-    console.log(b); // [1, 2, 10, 20]
+    const str = 'hello';
+    console.log(str.length); // 5
 
-    const sum = (a, b) => a + b;
-    console.log(sum(...a)); // 30
+    // substring(start, end)
+    console.log(str.substring(2, 4)); // ll
 
-    const o1 = {a: 1};
-    const o2 = {...o1, b: 2};
-    console.log(o2); // {a: 1, b: 2}
+    // 文字列に対して配列のようにアクセスできる。が、変更などは不可
+    console.log(str[1]) // e
 
 
-    // 分割代入
-    const numbers = [1, 2, 3, 8];
-    const [x, y, ...rest] = numbers;
-    console.log(x);    // 1
-    console.log(y);    // 2
-    console.log(rest); // [3, 8]
-    
+    // Math
+    console.log(Math.PI); // 3.1415....
+    console.log(Math.random()); // 0 ... 0.99999
 
-    const player = {
-        name: 'taguchi',
-        score: 55,
-        hp: 33,
-        mp: 22,
-    };
-
-    const {name, score, ...points} = player;
-    console.log(name);   // taguchi 
-    console.log(score);  // 55
-    console.log(points); // {hp: 33, mp: 22}
+    // Math.random() * 6 + 1 => 1... 6.9999999
+    // Math.floor(Math.random() * 6 + 1) => 1 ... 6
+    console.log(Math.floor(Math.random() * 6 + 1));
 }
