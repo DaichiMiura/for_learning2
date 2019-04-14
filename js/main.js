@@ -1,28 +1,19 @@
 'use strict';
 {
-    let x = 1;
-    let y = x;
-    x = 5;
-    // x = 5 y = 1
+    const a = [1, 5, 10, 100];
+    for (let i = 0; i < a.length; i++) {
+        console.log(a[i]);
+    }
 
-    x = [1, 5];
-    // 配列そのものを代入しているのではなく、ｙはxを参照しているのみ
-    y = x;
-    x[0] = 5;
-    // x = [5, 2] y = [5, 2]
+    a.forEach((item, index) => {
+        console.log(`${index}: ${item}`);
+    })
 
-    const a = [1, 5, 10];
-    // 先頭へ追加
-    a.unshift(100);
-    // 末尾へ追加
-    a.push(200, 300)
-    // 先頭を削除
-    a.shift();
-    // 末尾を削除
-    a.pop();
-    // [1, 5, 10, 200]
+    // mapを使うと全ての要素に同じ処理をすることができる。
+    const b = a.map(item => item * 2);
+    // [2, 10, 20, 200]
 
-    // 第1に開始位置、第2に削除する個数、第3以降に追加する値
-    a.splice(2, 0, 6, 7) 
-    // [1, 5, 6, 7, 10, 200]
+    // 真偽値を与える関数を与えて、trueのときだけ要素を取り出せるfilter
+    const c = a.filter(item => item % 2 === 0);
+    // [10, 100]
 }
