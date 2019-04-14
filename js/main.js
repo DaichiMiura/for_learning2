@@ -1,42 +1,28 @@
 'use strict';
 {
-    // クラス
-    // メソッドに'function'はつけなくて良い
-    class Player {
-        constructor(name, score) {
-            this.name  = name;
-            this.score = score;
-        }
+    let x = 1;
+    let y = x;
+    x = 5;
+    // x = 5 y = 1
 
-        showInfo() {
-            console.log(`name: ${this.name} score: ${this.score}`)
-        }
+    x = [1, 5];
+    // 配列そのものを代入しているのではなく、ｙはxを参照しているのみ
+    y = x;
+    x[0] = 5;
+    // x = [5, 2] y = [5, 2]
 
-        static showVersion() {
-            console.log('player class ver. 1.0');
-        }
-    }
+    const a = [1, 5, 10];
+    // 先頭へ追加
+    a.unshift(100);
+    // 末尾へ追加
+    a.push(200, 300)
+    // 先頭を削除
+    a.shift();
+    // 末尾を削除
+    a.pop();
+    // [1, 5, 10, 200]
 
-    // 継承
-    class SoccerPlayer extends Player {
-        constructor(name, score, number) {
-            super(name, score); // 親クラスのコンストラクタを呼び出す
-            this.number = number;
-        }
-
-        kick() {
-            console.log('Gooooooaaaalll');
-        }
-    }
-
-    const taguchi = new Player('taguchi', 32);
-    const fkoji   = new Player('fkoji'  , 44);
-    taguchi.showInfo();
-    fkoji.showInfo();
-    Player.showVersion();
-
-    const tsubasa = new SoccerPlayer('tsubasa', 99, 10);
-    console.log(tsubasa.number);
-    tsubasa.showInfo();
-    
+    // 第1に開始位置、第2に削除する個数、第3以降に追加する値
+    a.splice(2, 0, 6, 7) 
+    // [1, 5, 6, 7, 10, 200]
 }
