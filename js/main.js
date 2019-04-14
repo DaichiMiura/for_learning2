@@ -1,53 +1,37 @@
 'use strict';
-
-// if
-const score = 60;
-
-if (score >= 75) {
-    console.log('hello');
-} else if (score >= 60) {
-    console.log('good');
-} else {
-    console.log('ok');
+// 関数
+// 引数にはconstやletはいらない
+function showAd(message = 'AD') { // 仮引数
+    console.log(`---${message}---`);
 }
 
-// 短縮形
-score >= 80 ? console.log('great') : console.log('ok');
+showAd();        // ---AD---
+showAd('hello'); // ---hello---
 
-// switch
-const signal = 'green';
-switch (signal) {
-    case 'red':
-        console.log('stop');
-        break;
-    case 'yellow':
-        console.log('caution');
-        break;
-    case 'blue':
-    case 'green':
-        console.log('go');
-        break;
-    default:
-        console.log('wrong signal');
-        break;
+// 関数式　無名関数
+const sum = function(a, b, c) {
+    return a + b + c;
+};
+
+const total = sum(1, 2, 3) + sum(4 ,5, 6);
+console.log(total);
+
+// アロー関数
+const sum2 = (a, b, c) => a + b + c;
+console.log(sum2(1, 2, 3));
+
+//引数が１つのときはカッコを省略可能
+const double = a => a * 2;
+console.log(double(12));
+
+// スコープについて
+
+const x = 2; // グローバルスコープ
+
+function f() {
+    const x = 1;
+    console.log(x);
 }
 
-// for
-// テンプレートリテラル。バッククォートで囲んだ中では変数や定数の展開可能
-for (let i = 1; i <= 10; i++) {
-    if (i % 3 === 0) {
-        continue;
-    }
-
-    if (i === 8) {
-        break;
-    }
-    console.log(`${i} hello`);
-}
-
-// while
-let hp = 200;
-while (hp > 0) {
-    console.log(`${hp} HP left!`);
-    hp -= 15;
-}
+f();           // 1
+console.log(x) // 2
