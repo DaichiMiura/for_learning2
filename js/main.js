@@ -1,9 +1,10 @@
 'use strict';
 {
-    const h1 = document.querySelector('h1');
-    console.log(h1.title);
-    h1.title = 'Changed!';
+    // HTMLのカスタムデータ属性
 
-    h1.style.color = 'grey';
-    h1.style.backgroundColor = 'pink';
+    const h1 = document.querySelector('h1');
+
+    console.log(h1.dataset.appId);
+    h1.dataset.message = 'this is custom message!';
+    console.log(h1.dataset.message);
 }
