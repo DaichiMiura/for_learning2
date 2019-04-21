@@ -1,10 +1,17 @@
 'use strict';
 {
-    // HTMLのカスタムデータ属性
+    const div = document.querySelector('div');
 
-    const h1 = document.querySelector('h1');
+    // div.className = 'box border-pink';
 
-    console.log(h1.dataset.appId);
-    h1.dataset.message = 'this is custom message!';
-    console.log(h1.dataset.message);
+    // div.classList.add('border-pink');
+    // div.classList.remove('border-pink');
+    
+    // if (div.classList.contains('border-pink')) {
+    //    div.classList.remove('border-pink');
+    //} else {
+    //    div.classList.add('border-pink');
+    //}
+
+    div.classList.toggle('border-pink');
 }
