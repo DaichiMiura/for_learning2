@@ -1,17 +1,22 @@
 'use strict';
 {
-    const div = document.querySelector('div');
+    const h1 = document.createElement('h1');
+    h1.textContent = 'Title';
+    document.body.appendChild(h1);
 
-    // div.className = 'box border-pink';
+    const p = document.createElement('p');
+    p.textContent = 'hello hello hello...';
+    document.body.appendChild(p);
 
-    // div.classList.add('border-pink');
-    // div.classList.remove('border-pink');
-    
-    // if (div.classList.contains('border-pink')) {
-    //    div.classList.remove('border-pink');
-    //} else {
-    //    div.classList.add('border-pink');
-    //}
+    const h2 = document.createElement('h2');
+    h2.textContent = 'Sub Title';
+    document.body.insertBefore(h2, p);
 
-    div.classList.toggle('border-pink');
+    // const copy = p.cloneNode(true);
+
+    // falseにすると空の要素になる
+    const copy = p.cloneNode(false); 
+    document.body.insertBefore(copy, h2);
+
+    document.body.removeChild(h2);
 }
