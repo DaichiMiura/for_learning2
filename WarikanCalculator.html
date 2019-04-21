@@ -33,7 +33,26 @@
 
     #num,
     #unit {
-        width: 110px;
+      width: 110px;
+    }
+
+    #btn {
+      cursor: pointer;
+      display: inline-block;
+      box-sizing: border-box;
+      width: 110px;
+      height: 40px;
+      padding: 10px;
+      background: #3897fd;
+      border-radius: 5px;
+      font-size: 14px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .input-area {
+        font-size: 0;
+        margin-bottom: 20px;
     }
   </style>
 </head>
@@ -47,6 +66,7 @@
         <option value="100" selected>100円単位</option>
         <option value="1000">1000円単位</option>
       </select>
+      <div id="btn">計算</div>
     </div>
   </div>
   <script>
