@@ -1,8 +1,8 @@
 'use strict';
 {
-    const button = document.querySelector('button');
+    const div = document.querySelector('div');
 
-    button.addEventListener('dblclick', () => {
-        console.log('clicked');
-    })
+    document.addEventListener('mousemove', e => {
+        div.textContent = `${e.clientX}:${e.clientY}`;
+    });
 }
