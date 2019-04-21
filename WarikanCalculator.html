@@ -78,6 +78,10 @@
     #btn.disabled {
         opacity: 0.5;
     }
+
+    #reset.hidden {
+        display: none;
+    }
   </style>
 </head>
 <body>
@@ -94,7 +98,7 @@
     </div>
     <div class="result-area">
       <p id="result">ここに結果を表示します</p>
-      <div id="reset">もう一度計算する？</div>
+      <div id="reset" class="hidden">もう一度計算する？</div>
     </div>
   </div>
   <script>
@@ -146,10 +150,23 @@
             }
             
             result.textContent = str;
+            reset.classList.remove('hidden');
         });
 
         price.addEventListener('keyup', checkInput);
         num.addEventListener('keyup', checkInput);
+
+        reset.addEventListener('click', function() {
+            result.textContent = 'ここに結果を表示します';
+            price.value ='';
+            num.value ='';
+            unit.value ='';
+            btn.classList.add('disabled');
+            reset.classList.add('hidden');
+            price.focus();
+        })
+
+        price.focus();
     })();
   </script>
 </body>
